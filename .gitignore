@@ -1,0 +1,107 @@
+# Python-related ignores
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+ENV/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# FastAPI and Flask-specific files
+*.db
+*.sqlite3
+
+# Environment and configuration files
+.env
+.env.local
+.env.development
+.env.production
+*.env
+
+# Logs
+*.log
+logs/
+
+# IDE-specific files
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pytest
+.pytest_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
+coverage.xml
+
+# Mypy cache
+.mypy_cache/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Static and media files (if applicable)
+static/
+media/
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Dependency directories
+node_modules/
+
+# Docker-related
+.dockerignore
+*.dockerfile
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Secrets and sensitive files
+secrets/
+*.key
+*.pem
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Specific to FastAPI
+.tmp/
