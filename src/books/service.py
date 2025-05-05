@@ -13,11 +13,11 @@ class BookService:
     async def get_book(self, book_uid: str, session: AsyncSession):
         statement = select(Book).where(Book.uid == book_uid)
         result = await session.exec(statement)
-        return result.first()
+        book = result.first()
+        return book if book else None
 
     async def create_book(self, book_data: BookCreateModel, session: AsyncSession):
         book_data_dict = book_data.model_dump()
-        print("book_data_dict: ", book_data_dict)
         new_book = Book(**book_data_dict)
         session.add(new_book)
         await session.commit()
@@ -27,14 +27,14 @@ class BookService:
     async def update_book(
         self, book_uid: str, update_data: BookUpdateModel, session: AsyncSession
     ):
-        book_to_update = self.get_book(book_uid, session)
+        book_to_update = await self.get_book(book_uid, session)
         if book_to_update is not None:
-            update_data_dict = update_data.model_dump()
-
-            for k, v in update_data_dict.items():
+            update_data = update_data.model_dump()
+            for k, v in update_data.items():
                 setattr(book_to_update, k, v)
 
             await session.commit()
+            await session.refresh(book_to_update)
             return book_to_update
         else:
             return None

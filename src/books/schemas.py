@@ -22,3 +22,7 @@ class BookUpdateModel(BaseModel):
     title: str
     author: str
     published_date: int
+
+
+class BookDetailModel(Book):
+    pass
